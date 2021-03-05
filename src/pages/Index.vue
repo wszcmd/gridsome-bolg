@@ -7,13 +7,14 @@
       <div class="projects">
         <div  class="project" v-for="item in stars" :key='item.id'>
           <a  :href="`/star/${item.node.id}`" class="project-link">
-            <img
+            <!-- <img
               class="thumbnail"
               alt="Banana"
               :src="`http://47.96.94.154:8222${item.node.pic.url}`"
               width="2560"
               sizes="(max-width: 2560px) 100vw, 2560px"
-            />
+            /> -->
+            <div class="thumbnail" :style="{backgroundImage: `url(http://47.96.94.154:8222${item.node.pic.url})`}"/>
             <h3  class="project-title">{{item.node.name}}</h3>
             <div  class="categories">
               <span  class="category"  v-for="itm in item.node.tags" :key="itm.name">{{itm.name}}</span>
@@ -102,6 +103,8 @@ export default {
     transition: all .15s ease;
     box-shadow: 0 0 40px -20px rgb(0 0 0 / 25%);
     max-width: 100%;
+    background-size: cover;
+    background-repeat:no-repeat;
 }
 .project-title {
     font-size: 1rem;
